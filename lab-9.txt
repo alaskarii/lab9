@@ -1,0 +1,23 @@
+lab9 
+mkdir lab9
+cd lab9
+mkdir cron_scripts
+mkdir logs
+cd cron_scripts 
+
+vi creat_logfile.sh
+#!/bin/bash
+if [ -d ~/lab9/logs ] # put space in the beginning and in the end
+then
+      date=date -u +%Y%m%d_%H%M%S
+      touch ~/lab9/logs/$date.log
+fi
+
+close the vi 
+Type crontab -e 
+And type inside it
+
+ *  *  *  *  *  ~/lab9/cron_scripts/creat_logfile.sh
+#And save it ( :wq )
+#To test it go back to lab9 and type 
+ls ./logs
